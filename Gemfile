@@ -11,9 +11,12 @@ gem 'jbuilder', '~> 2.5'
 gem 'devise'
 gem 'bootstrap-sass'
 gem 'simple_form'
+gem 'haml'
 
 group :development, :test do
   gem 'byebug', platform: :mri
+  gem 'haml-rails'
+  gem 'rspec-rails'
 end
 
 group :development do
@@ -21,6 +24,11 @@ group :development do
   gem 'listen', '~> 3.0.5'
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
+end
+
+group :test do
+  gem 'factory_girl_rails'
+  gem 'database_cleaner'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
