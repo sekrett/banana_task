@@ -16,7 +16,7 @@ class PermittedFormBuilder < SimpleForm::FormBuilder
         when :readonly
           super { object[attribute_name].to_s }
         else
-          raise 'Unknown permission type'
+          nil
       end
     end
   end
@@ -39,7 +39,7 @@ class PermittedFormBuilder < SimpleForm::FormBuilder
           end
         end
       else
-        raise 'Unknown permission type'
+        nil
     end
   end
 
