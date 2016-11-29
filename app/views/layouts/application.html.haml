@@ -16,9 +16,10 @@
           = link_to t('site.home'), root_path, class: 'navbar-brand'
         - if user_signed_in?
           %ul.nav.navbar-nav.navbar-right
-            %p.navbar-text
-              = t('site.signed_in_as')
-              = link_to current_user.name, edit_user_registration_path
+            %li
+              %p.navbar-text
+                = t('site.signed_in_as')
+                = link_to current_user.name, edit_user_registration_path
             %li= link_to t('site.sign_out'), destroy_user_session_path, method: :delete
         - else
           %ul.nav.navbar-nav.navbar-right
