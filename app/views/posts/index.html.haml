@@ -1,0 +1,23 @@
+- title t('headers.posts')
+
+= link_to_new(:posts)
+
+%table{class: table_class}
+  %tr
+    %th.btn-col &nbsp;
+    %th &nbsp;
+    %th= t('activerecord.attributes.post.title')
+    %th= t('activerecord.attributes.post.content')
+    %th= t('activerecord.attributes.post.published_at')
+    %th= t('activerecord.attributes.post.user')
+    %th.btn-col &nbsp;
+
+  - @posts.each do |post|
+    %tr
+      %td.btn-col= link_to_edit post
+      %td= link_to 'Show', post
+      %td= post.title
+      %td= post.content
+      %td= post.published_at
+      %td= post.user.try(:name)
+      %td.btn-col= link_to_destroy post

@@ -56,8 +56,8 @@ class PermittedParams < Struct.new(:params, :controller, :model)
 
   def permitted_attributes(model)
     case model
-      # when :post
-      #   [add_fields_on_create(attrs, []), nil, nil]
+      when :post
+        [[:title, :content, :published_at], nil, nil]
       else
         [nil, nil, nil]
     end

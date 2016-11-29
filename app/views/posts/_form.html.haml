@@ -1,0 +1,9 @@
+= link_to_back posts_path
+
+= form_wrapper(t("actions.post.#{action}")) do
+  = simple_form_for(@post) do |f|
+    = f.error_notification
+    = f.input :title
+    = f.input :content
+    = f.input :published_at
+    = f.button :submit
