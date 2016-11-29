@@ -1,6 +1,7 @@
 class PostsController < ApplicationController
   def index
     @posts = Post.order('published_at DESC')
+    @posts = @posts.where(user_id: params[:user_id]) if params[:user_id]
   end
 
   def show

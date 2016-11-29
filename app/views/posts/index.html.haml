@@ -1,4 +1,4 @@
-- title t('headers.posts')
+- title params[:user_id] ? t('site.my_posts'): t('headers.posts')
 
 = link_to_new(:posts)
 
