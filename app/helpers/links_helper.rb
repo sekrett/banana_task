@@ -12,12 +12,20 @@ module LinksHelper
   end
 
   def link_to_edit(path)
-    link_to(admin_icon(:edit), [:edit, path].flatten, class: 'btn btn-success', title: t('site.edit'), 'data-toggle': 'tooltip')
+    if can?('edit', path)
+      link_to(admin_icon(:edit), [:edit, path].flatten, class: 'btn btn-success', title: t('site.edit'), 'data-toggle': 'tooltip')
+    else
+      '&nbsp;'.html_safe
+    end
   end
 
   def link_to_destroy(path)
-    link_to(admin_icon(:destroy), path, 'data-confirm': t('site.confirm'), method: :delete,
-            class: 'btn btn-danger', title: t('site.destroy'), 'data-toggle': 'tooltip')
+    if can?('destroy', path)
+      link_to(admin_icon(:destroy), path, 'data-confirm': t('site.confirm'), method: :delete,
+              class: 'btn btn-danger', title: t('site.destroy'), 'data-toggle': 'tooltip')
+    else
+      '&nbsp;'.html_safe
+    end
   end
 
   def link_to_with_icon(text, href, icon, options = {})
