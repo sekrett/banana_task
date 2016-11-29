@@ -1,7 +1,7 @@
 !!!
 %html
   %head
-    %title BananaTask
+    %title= yield(:title)
     = csrf_meta_tags
 
     = stylesheet_link_tag    'application', media: 'all'
