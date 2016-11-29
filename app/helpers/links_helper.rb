@@ -1,6 +1,6 @@
 module LinksHelper
   def link_to_new(controller, parent_object = nil)
-    if can?(controller, :create)
+    if can?(:create)
       link_to [:new, parent_object, controller.to_s.singularize].compact, class: 'btn btn-new btn-primary' do
         admin_icon(:plus) + '&nbsp;'.html_safe + t("actions.#{controller}.create")
       end

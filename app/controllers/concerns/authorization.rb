@@ -4,8 +4,11 @@ module Authorization
   included do
     before_action :authorize, unless: :devise_controller?
 
-    delegate :can?, to: :current_permission
     helper_method :can?
+  end
+
+  def can?(action, resource = nil)
+    current_permission.can?(params[:controller], action, resource)
   end
 
   private
