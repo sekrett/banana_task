@@ -4,7 +4,7 @@ class PostsController < ApplicationController
   end
 
   def show
-    @post = Post.find(params[:id])
+    @post = current_resource
   end
 
   def new
@@ -12,7 +12,7 @@ class PostsController < ApplicationController
   end
 
   def edit
-    @post = Post.find(params[:id])
+    @post = current_resource
   end
 
   def create
@@ -26,7 +26,7 @@ class PostsController < ApplicationController
   end
 
   def update
-    @post = Post.find(params[:id])
+    @post = current_resource
     if @post.update(permitted_params)
       redirect_to posts_path, notice: t('flash.post.update')
     else
@@ -35,7 +35,7 @@ class PostsController < ApplicationController
   end
 
   def destroy
-    @post = Post.find(params[:id])
+    @post = current_resource
     @post.destroy
     redirect_to posts_path, notice: t('flash.post.destroy')
   end
