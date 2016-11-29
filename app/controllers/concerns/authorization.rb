@@ -2,7 +2,7 @@ module Authorization
   extend ActiveSupport::Concern
 
   included do
-    before_action :authorize
+    before_action :authorize, unless: :devise_controller?
 
     delegate :can?, to: :current_permission
     helper_method :can?
