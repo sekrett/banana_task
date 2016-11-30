@@ -8,7 +8,7 @@ module Authorization
   end
 
   def can?(action, resource = nil)
-    current_permission.can?(params[:controller], action, resource)
+    current_permission.can?(get_controller_name(resource) || params[:controller], action, resource)
   end
 
   private
@@ -18,6 +18,10 @@ module Authorization
 
   def current_resource
     @current_resource ||= params[:controller].capitalize.singularize.constantize.find(params[:id]) if params[:id]
+  end
+
+  def get_controller_name(resource)
+    resource.class.to_s.downcase.pluralize if resource
   end
 
   def authorize
