@@ -1,0 +1,24 @@
+%h2= t('headers.comments')
+
+- if @post.comments.size > 0
+  %table{class: table_class}
+    %tr
+      %th.btn-col &nbsp;
+      %th= t('activerecord.attributes.comment.content')
+      %th= t('activerecord.attributes.comment.created_at')
+      %th= t('activerecord.attributes.comment.user')
+      %th.btn-col &nbsp;
+
+    - @comments.each do |comment|
+      %tr
+        %td.btn-col= link_to_edit [@post, comment]
+        %td= comment.content.html_safe
+        %td= comment.created_at
+        %td= comment.user.name
+        %td.btn-col= link_to_destroy [@post, comment]
+- else
+  %em= t('site.no_comments_yes')
+
+%h3= t('site.add_comment')
+
+= render 'comments/form'

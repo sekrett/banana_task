@@ -58,6 +58,8 @@ class PermittedParams < Struct.new(:params, :controller, :model)
     case model
       when :post
         [[:title, :content, :published_at], nil, nil]
+      when :comment
+        [[:content], nil, nil]
       else
         [nil, nil, nil]
     end

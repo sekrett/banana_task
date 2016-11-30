@@ -12,7 +12,7 @@ module LinksHelper
   end
 
   def link_to_edit(path)
-    if can?('edit', path)
+    if can?('edit', Array(path).last)
       link_to(admin_icon(:edit), [:edit, path].flatten, class: 'btn btn-success', title: t('site.edit'), 'data-toggle': 'tooltip')
     else
       '&nbsp;'.html_safe
@@ -20,7 +20,7 @@ module LinksHelper
   end
 
   def link_to_destroy(path)
-    if can?('destroy', path)
+    if can?('destroy', Array(path).last)
       link_to(admin_icon(:destroy), path, 'data-confirm': t('site.confirm'), method: :delete,
               class: 'btn btn-danger', title: t('site.destroy'), 'data-toggle': 'tooltip')
     else

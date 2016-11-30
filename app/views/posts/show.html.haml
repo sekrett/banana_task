@@ -1,18 +1,11 @@
-%p#notice= notice
+= link_to_edit @post
 
-%p
-  %b Title:
+%h1
   = @post.title
-%p
-  %b Content:
-  = @post.content
-%p
-  %b Published at:
-  = @post.published_at
-%p
-  %b User:
-  = @post.user
+  %small
+    = t('activerecord.attributes.post.user') + ':'
+    = @post.user.name + ','
+    = @post.published_at
+= @post.content.html_safe
 
-= link_to 'Edit', edit_post_path(@post)
-\|
-= link_to 'Back', posts_path
+= render template: 'comments/index'

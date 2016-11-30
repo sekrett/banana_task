@@ -7,5 +7,7 @@ class Permission
       post.user == user
     end
     can :posts, :create if user
+
+    can :comments, :manage
   end
 end

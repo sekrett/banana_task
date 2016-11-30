@@ -1,11 +1,14 @@
 class PostsController < ApplicationController
+  before_action :set_post, only: [:show, :edit, :update, :destroy]
+
   def index
     @posts = Post.order('published_at DESC')
     @posts = @posts.where(user_id: params[:user_id]) if params[:user_id]
   end
 
   def show
-    @post = current_resource
+    @comment = Comment.new(post: @post)
+    @comments = @post.comments.order('created_at DESC')
   end
 
   def new
@@ -20,24 +23,27 @@ class PostsController < ApplicationController
     @post = Post.new(permitted_params)
     @post.user = current_user
     if @post.save
-        redirect_to posts_path, notice: t('flash.post.create')
+        redirect_to @post, notice: t('flash.post.create')
     else
       render :new
     end
   end
 
   def update
-    @post = current_resource
     if @post.update(permitted_params)
-      redirect_to posts_path, notice: t('flash.post.update')
+      redirect_to @post, notice: t('flash.post.update')
     else
       render :edit
     end
   end
 
   def destroy
-    @post = current_resource
     @post.destroy
     redirect_to posts_path, notice: t('flash.post.destroy')
+  end
+
+  private
+  def set_post
+    @post = current_resource
   end
 end
