@@ -19,6 +19,6 @@
 - else
   %em= t('site.no_comments_yes')
 
-%h3= t('site.add_comment')
-
-= render 'comments/form'
+- if current_user
+  %h3= t('site.add_comment')
+  = render 'comments/form'
