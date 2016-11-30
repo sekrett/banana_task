@@ -27,7 +27,7 @@ class PostsController < ApplicationController
     @post = Post.new(permitted_params)
     @post.user = current_user
     if @post.save
-        redirect_to @post, notice: t('flash.post.create')
+      redirect_to @post, notice: t('flash.post.create')
     else
       render :new
     end
