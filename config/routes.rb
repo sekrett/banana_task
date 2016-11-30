@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   resources :posts do
     resources :comments, only: [:create, :edit, :update, :destroy]
   end
+  get 'tags/:tag', to: 'posts#index', as: :tag
 
   root to: 'posts#index'
 end

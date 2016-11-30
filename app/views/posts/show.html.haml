@@ -6,6 +6,8 @@
     = t('activerecord.attributes.post.user') + ':'
     = @post.user.name + ','
     = @post.published_at
+%h2= t('headers.tags')
+= @post.tag_list
 = @post.content.html_safe
 
 = render template: 'comments/index'

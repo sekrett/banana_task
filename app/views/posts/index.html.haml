@@ -1,4 +1,4 @@
-- title params[:user_id] ? t('site.my_posts'): t('headers.posts')
+- title posts_title(params[:tag])
 
 = link_to_new(:posts)
 
@@ -8,6 +8,7 @@
     %th &nbsp;
     %th= t('activerecord.attributes.post.title')
     %th= t('activerecord.attributes.post.content')
+    %th= t('headers.tags')
     %th= t('activerecord.attributes.post.published_at')
     %th= t('activerecord.attributes.post.user')
     %th.btn-col &nbsp;
@@ -18,6 +19,7 @@
       %td= link_to 'Show', post
       %td= post.title
       %td= post.content
+      %td= post.tag_list
       %td= post.published_at
       %td= post.user.try(:name)
       %td.btn-col= link_to_destroy post
