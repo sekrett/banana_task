@@ -57,7 +57,7 @@ class PermittedParams < Struct.new(:params, :controller, :model)
   def permitted_attributes(model)
     case model
       when :post
-        [[:title, :content, :published_at], nil, nil]
+        [[:title, :content, :published, :published_at], nil, nil]
       when :comment
         [[:content], nil, nil]
       else
