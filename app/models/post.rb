@@ -12,6 +12,6 @@ class Post < ApplicationRecord
 
   private
   def set_published_at
-    self.published_at = created_at
+    self.published_at = created_at.change(sec: 0)
   end
 end
