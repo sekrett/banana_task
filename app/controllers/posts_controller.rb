@@ -1,4 +1,6 @@
 class PostsController < ApplicationController
+  include Pagination::ControllerExt
+
   before_action :set_post, only: [:show, :edit, :update, :destroy]
 
   def index
@@ -9,6 +11,7 @@ class PostsController < ApplicationController
       @posts = @posts.published
     end
     @posts = @posts.tagged_with(params[:tag]) if params[:tag]
+    @posts = paginate(@posts, params[:page])
   end
 
   def show

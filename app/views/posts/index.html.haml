@@ -2,6 +2,8 @@
 
 = link_to_new(:posts)
 
+= paginate
+
 %table{class: table_class}
   %tr
     %th.btn-col &nbsp;
@@ -23,3 +25,5 @@
       %td= post.published_at
       %td= post.user.try(:name)
       %td.btn-col= link_to_destroy post
+
+= paginate
