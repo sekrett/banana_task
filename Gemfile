@@ -10,6 +10,7 @@ gem 'jquery-rails'
 gem 'jbuilder', '~> 2.5'
 gem 'devise'
 gem 'bootstrap-sass'
+gem 'angularjs-rails'
 gem 'simple_form'
 gem 'haml'
 
