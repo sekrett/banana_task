@@ -1,7 +1,7 @@
 module Pagination
   class RelationMethods
     def self.get_total_count(relation)
-      relation.klass.count
+      relation.size
     end
 
     def self.get_records(relation, offset, limit)
