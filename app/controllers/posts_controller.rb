@@ -24,7 +24,6 @@ class PostsController < ApplicationController
   end
 
   def edit
-    @post = current_resource
   end
 
   def create
