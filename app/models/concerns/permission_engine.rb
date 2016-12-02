@@ -5,13 +5,13 @@ module PermissionEngine
     @allowed_actions ||= {}
     Array(controllers).each do |controller|
       add_all_actions(actions).each do |action|
-        @allowed_actions[[controller.to_sym, action.to_sym]] = block || true
+        @allowed_actions[[controller.to_s, action.to_s]] = block || true
       end
     end
   end
 
   def can?(controller, action, resource = nil)
-    allowed = @allowed_actions[[controller.to_sym, action.to_sym]]
+    allowed = @allowed_actions[[controller.to_s, action.to_s]]
     allowed && (allowed == true || resource && allowed.call(resource))
   end
 
