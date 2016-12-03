@@ -10,9 +10,11 @@ class Permission
     end
     can :posts, :create if user
 
-    can :comments, :read
-    can :comments, :create if user
-    can :comments, [:edit, :destroy] do |comment|
+    comment_controllers = ['api/v1/comments', :comments]
+
+    can comment_controllers, :read
+    can comment_controllers, :create if user
+    can comment_controllers, [:edit, :destroy] do |comment|
       comment.user == user && comment.created_at > COMMENT_MANAGEABLE_INTERVAL.ago
     end
   end

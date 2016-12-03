@@ -19,6 +19,11 @@ module LinksHelper
     end
   end
 
+  def link_to_angular_edit
+    link_to(admin_icon(:edit), '/posts/{{comment.post_id}}/comments/{{comment.id}}/edit',
+            class: 'btn btn-success', title: t('site.edit'), 'data-toggle': 'tooltip')
+  end
+
   def link_to_destroy(path)
     if can?('destroy', Array(path).last)
       link_to(admin_icon(:destroy), path, 'data-confirm': t('site.confirm'), method: :delete,
@@ -26,6 +31,11 @@ module LinksHelper
     else
       '&nbsp;'.html_safe
     end
+  end
+
+  def link_to_angular_destroy(model_or_id)
+    link_to(admin_icon(:destroy), '#', 'ng-click': "destroy(#{model_or_id})", 'ng-confirm-click': t('site.confirm'),
+            class: 'btn btn-danger', title: t('site.destroy'), 'data-toggle': 'tooltip')
   end
 
   def link_to_with_icon(text, href, icon, options = {})

@@ -1,0 +1,25 @@
+%div{ 'ng-app': 'bananaApp', 'ng-controller': 'CommentsController', 'ng-init': "init(#{@post.id})" }
+  %table{ class: table_class }
+    %tr
+      %th.btn-col &nbsp;
+      %th= t('activerecord.attributes.comment.content')
+      %th= t('activerecord.attributes.comment.created_at')
+      %th= t('activerecord.attributes.comment.user')
+      %th.btn-col &nbsp;
+
+    %tr{ id: '{{comment.id}}',  'ng-repeat': 'comment in comments' }
+      %td.btn-col
+        %div{ 'ng-if': 'comment.editable'}= link_to_angular_edit
+        %div{ 'ng-if': '!comment.editable'} &nbsp;
+      %td {{ comment.content }}
+      %td {{ comment.created_at }}
+      %td {{ comment.user }}
+      %td.btn-col
+        %div{ 'ng-if': 'comment.destroyable'}= link_to_angular_destroy('comment')
+        %div{ 'ng-if': '!comment.destroyable'} &nbsp;
+
+  %em{ 'ng-show': 'comments.length == 0' }= t('site.no_comments_yes')
+
+  - if current_user
+    %h3= t('site.add_comment')
+    = render 'comments/form'

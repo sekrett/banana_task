@@ -1,4 +1,13 @@
-= permitted_form_for([@post, @comment]) do |f|
-  = f.error_notification
-  = f.input :content
-  = f.button :submit
+- if @comment
+  = permitted_form_for([@post, @comment], html: { 'ng-init': "content='#{@comment.content}'" }) do |f|
+    = f.error_notification
+    = f.input :content, input_html: { 'ng-model': 'content' }
+    = f.button :submit, 'ng-disabled': 'content.length == 0'
+- else
+  %form{ name: 'commentForm', novalidate: true, 'ng-submit': "submit(#{@post.id})" }
+    .form-group
+      = label_tag :content, class: 'control-label' do
+        %abbr{ title: t('site.required') } *
+        = t('activerecord.attributes.comments.content')
+      = text_field_tag 'content', nil, 'ng-model': 'comment.content', class: 'form-control', required: true
+    = submit_tag t('actions.comments.create'), class: 'btn btn-primary', 'ng-disabled': 'commentForm.$invalid'
