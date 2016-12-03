@@ -15,8 +15,6 @@ class PostsController < ApplicationController
   end
 
   def show
-    @comment = Comment.new(post: @post)
-    @comments = @post.comments.order('created_at DESC')
   end
 
   def new
