@@ -7,7 +7,7 @@ class CommentsController < ApplicationController
 
   def update
     if @comment.update(permitted_params)
-      redirect_to @post, notice: 'Comment was successfully updated.'
+      redirect_to @post, notice:  t('flash.comment.update')
     else
       render :edit
     end
@@ -15,7 +15,7 @@ class CommentsController < ApplicationController
 
   def destroy
     @comment.destroy
-    redirect_to @post, notice: 'Comment was successfully destroyed.'
+    redirect_to @post, notice: t('flash.comment.destroy')
   end
 
   private

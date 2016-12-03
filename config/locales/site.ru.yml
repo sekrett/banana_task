@@ -1,0 +1,17 @@
+ru:
+  site:
+    home: Главная
+    my_posts: Мои посты
+    signed_in_as: Вошел как
+    sign_out: Выйти
+    sign_up: Зарегистрироваться
+    sign_in: Войти
+    tags: Теги
+    no_comments_yes: Еще никто не оставил комментариев
+
+    back: Вернуться
+    show: Показать
+    edit: Редактировать
+    destroy: Удалить
+    confirm: Вы уверены?
+    not_authorized: Недостаточно прав для выполнения запрошенной операции

@@ -1,0 +1,32 @@
+ru:
+  headers:
+    comment: Комментарий
+    comments: Комментарии
+
+  activerecord:
+    attributes:
+      comment:
+        content: Текст
+        created_at: Дата и время публикации
+        user: Автор
+
+  actions:
+    comment: &comment
+      create: Добавить комментарий
+      edit: Редактировать комментарий
+      update: Сохранить комментарий
+
+  flash:
+    comment:
+      create: Комментарий создан
+      update: Комментарий обновлен
+      destroy: Комментарий удален
+
+#  simple_form:
+#    hints:
+#      comment:
+
+  helpers:
+    submit:
+      comment:
+        <<: *comment

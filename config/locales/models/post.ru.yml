@@ -1,0 +1,36 @@
+ru:
+  headers:
+    post: Пост
+    posts: Посты
+
+  activerecord:
+    attributes:
+      post:
+        title: Название
+        content: Текст
+        published: Виден всем
+        published_at: Дата и время публикации
+        user: Автор
+        tag_list: Теги
+
+  actions:
+    post: &post
+      create: Создать пост
+      edit: Редактировать пост
+      update: Сохранить пост
+
+  flash:
+    post:
+      create: Пост создан
+      update: Пост обновлен
+      destroy: Пост удален
+
+  simple_form:
+    hints:
+      post:
+        tag_list: Список тегов, разделенные запятыми
+
+  helpers:
+    submit:
+      post:
+        <<: *post

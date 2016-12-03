@@ -7,7 +7,7 @@
   %form{ name: 'commentForm', novalidate: true, 'ng-submit': "submit(#{@post.id})" }
     .form-group
       = label_tag :content, class: 'control-label' do
-        %abbr{ title: t('site.required') } *
-        = t('activerecord.attributes.comments.content')
+        %abbr{ title: t('simple_form.required.text') }= t('simple_form.required.mark')
+        = t('activerecord.attributes.comment.content')
       = text_field_tag 'content', nil, 'ng-model': 'comment.content', class: 'form-control', required: true
-    = submit_tag t('actions.comments.create'), class: 'btn btn-primary', 'ng-disabled': 'commentForm.$invalid'
+    = submit_tag t('actions.comment.create'), class: 'btn btn-primary', 'ng-disabled': 'commentForm.$invalid'

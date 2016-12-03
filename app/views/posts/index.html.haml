@@ -18,7 +18,7 @@
   - @posts.each do |post|
     %tr
       %td.btn-col= link_to_edit post
-      %td= link_to 'Show', post
+      %td= link_to t('site.show'), post
       %td= post.title
       %td= post.content
       %td= post.tag_list
