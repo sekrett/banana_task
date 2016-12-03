@@ -13,6 +13,10 @@ gem 'bootstrap-sass'
 gem 'angularjs-rails'
 gem 'simple_form'
 gem 'haml'
+gem 'font-awesome-sass'
+gem 'ionicons-rails'
+gem 'material_icons'
+gem 'icomoon-rails'
 
 group :development, :test do
   gem 'byebug', platform: :mri

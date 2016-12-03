@@ -16,3 +16,45 @@
 
 @import 'bootstrap-sprockets';
 @import 'bootstrap';
+@import 'font-awesome-sprockets';
+@import 'font-awesome';
+@import 'ionicons';
+@import 'material_icons_unicode';
+
+.table {
+  .icon {
+    font-size: 14px;
+  }
+  .btn {
+    width: 31px;
+    height: 31px;
+    padding: 0;
+  }
+  .btn-col {
+    width: 1%;
+  }
+
+  .fa {
+    padding-top: 6px;
+  }
+  .mi {
+    padding-top: 4px;
+  }
+
+  .icon-yes {
+    color: #5cb85c;
+    font-size: 20px;
+    padding-top: 4px;
+  }
+
+  .icon-no {
+    color: #d9534f;
+    font-size: 20px;
+    padding-top: 4px;
+  }
+}
+
+.btn-new {
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
