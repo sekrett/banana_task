@@ -5,5 +5,13 @@ Rails.application.routes.draw do
   end
   get 'tags/:tag', to: 'posts#index', as: :tag
 
+  namespace 'api' do
+    namespace 'v1' do
+      resources :posts, only: [] do
+        resources :comments, only: [:index, :create, :destroy]
+      end
+    end
+  end
+
   root to: 'posts#index'
 end
