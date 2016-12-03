@@ -44,7 +44,7 @@ class PostsController < ApplicationController
 
   def destroy
     @post.destroy
-    redirect_to posts_path, notice: t('flash.post.destroy')
+    redirect_to posts_url, notice: t('flash.post.destroy')
   end
 
   private
